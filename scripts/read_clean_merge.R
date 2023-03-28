@@ -24,7 +24,6 @@ data4 <- read.csv('data/2019_Agorameter.csv', fileEncoding = "Latin1") %>%
   janitor::clean_names() %>% 
   mutate(date_time = mdy_hms(date_time)) %>% 
   select(-starts_with("de_"), -ends_with("_de")) %>% 
-  rename('hydro_pump' = pump) %>% 
   distinct(date_time, .keep_all = TRUE)
 
 # combine them into a single data frame
